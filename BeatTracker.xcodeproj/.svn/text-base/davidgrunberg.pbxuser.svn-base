@@ -1,0 +1,1152 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 5E86BA6D1211922A002B8A46 /* BeatTracker */;
+		activeTarget = 8DD76FA90486AB0100D96B5E /* BeatTracker */;
+		addToTargets = (
+			8DD76FA90486AB0100D96B5E /* BeatTracker */,
+		);
+		codeSenseManager = 5E86BA7212119233002B8A46 /* Code sense */;
+		executables = (
+			5E86BA6D1211922A002B8A46 /* BeatTracker */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 348076703;
+			PBXWorkspaceStateSaveDate = 348076703;
+		};
+		perUserProjectItems = {
+			5E385D7414BF3AA100D74F0E /* PBXTextBookmark */ = 5E385D7414BF3AA100D74F0E /* PBXTextBookmark */;
+			5E3BBF41122B0AF000E68738 = 5E3BBF41122B0AF000E68738 /* PBXTextBookmark */;
+			5E3BBF42122B0AF000E68738 = 5E3BBF42122B0AF000E68738 /* PBXTextBookmark */;
+			5E4ECE03123AC23C00558A5E = 5E4ECE03123AC23C00558A5E /* PBXTextBookmark */;
+			5E76FFE212147D940045BF59 = 5E76FFE212147D940045BF59 /* PBXTextBookmark */;
+			5E76FFE712147D940045BF59 = 5E76FFE712147D940045BF59 /* PBXTextBookmark */;
+			5E86BAC81211CBEA002B8A46 = 5E86BAC81211CBEA002B8A46 /* PBXTextBookmark */;
+			5E86BAC91211CBEA002B8A46 = 5E86BAC91211CBEA002B8A46 /* PBXTextBookmark */;
+			5E8CAF8012469547001068ED = 5E8CAF8012469547001068ED /* PBXTextBookmark */;
+			5E8CAF9A1246B261001068ED = 5E8CAF9A1246B261001068ED /* PBXTextBookmark */;
+			5E8CAF9B1246B261001068ED = 5E8CAF9B1246B261001068ED /* PBXTextBookmark */;
+			5E8CAF9C1246B261001068ED = 5E8CAF9C1246B261001068ED /* PBXTextBookmark */;
+			5E8CAFA31246B261001068ED = 5E8CAFA31246B261001068ED /* PBXTextBookmark */;
+			5E901479122B1242005F07D4 = 5E901479122B1242005F07D4 /* PBXTextBookmark */;
+			5E90147F122B1242005F07D4 = 5E90147F122B1242005F07D4 /* PBXTextBookmark */;
+			5E901515122B1AB7005F07D4 = 5E901515122B1AB7005F07D4 /* PBXTextBookmark */;
+			5E901519122B1AB7005F07D4 = 5E901519122B1AB7005F07D4 /* PBXTextBookmark */;
+			5E901562122B2084005F07D4 = 5E901562122B2084005F07D4 /* PBXTextBookmark */;
+			5E901570122B2084005F07D4 = 5E901570122B2084005F07D4 /* PBXTextBookmark */;
+			5E901572122B2084005F07D4 = 5E901572122B2084005F07D4 /* PBXTextBookmark */;
+			5E901582122B2084005F07D4 = 5E901582122B2084005F07D4 /* PBXTextBookmark */;
+			5E90158D122B2084005F07D4 = 5E90158D122B2084005F07D4 /* PBXTextBookmark */;
+			5E9015D2122B23B4005F07D4 = 5E9015D2122B23B4005F07D4 /* PBXTextBookmark */;
+			5E9015D9122B23B4005F07D4 = 5E9015D9122B23B4005F07D4 /* PBXTextBookmark */;
+			5E9015E2122B24D1005F07D4 = 5E9015E2122B24D1005F07D4 /* PBXTextBookmark */;
+			5E9015E8122B24D1005F07D4 = 5E9015E8122B24D1005F07D4 /* PBXTextBookmark */;
+			5E9015F6122B2676005F07D4 = 5E9015F6122B2676005F07D4 /* PBXTextBookmark */;
+			5E9015FC122B2676005F07D4 = 5E9015FC122B2676005F07D4 /* PBXTextBookmark */;
+			5E901606122B27B3005F07D4 = 5E901606122B27B3005F07D4 /* PBXTextBookmark */;
+			5E90160D122B27B3005F07D4 = 5E90160D122B27B3005F07D4 /* PBXTextBookmark */;
+			5E90161C122B295A005F07D4 = 5E90161C122B295A005F07D4 /* PBXTextBookmark */;
+			5E901623122B295A005F07D4 = 5E901623122B295A005F07D4 /* PBXTextBookmark */;
+			5E90163E122B2E6B005F07D4 = 5E90163E122B2E6B005F07D4 /* PBXTextBookmark */;
+			5E901646122B2E6B005F07D4 = 5E901646122B2E6B005F07D4 /* PBXTextBookmark */;
+			5E90165E122B2F8D005F07D4 = 5E90165E122B2F8D005F07D4 /* PBXTextBookmark */;
+			5E90166C122B31BB005F07D4 = 5E90166C122B31BB005F07D4 /* PBXTextBookmark */;
+			5E901694122B34A2005F07D4 = 5E901694122B34A2005F07D4 /* PBXTextBookmark */;
+			5E901699122B34A2005F07D4 = 5E901699122B34A2005F07D4 /* PBXTextBookmark */;
+			5E9016A7122B35D4005F07D4 = 5E9016A7122B35D4005F07D4 /* PBXTextBookmark */;
+			5E9016AC122B35D4005F07D4 = 5E9016AC122B35D4005F07D4 /* PBXTextBookmark */;
+			5E9016B6122B3617005F07D4 = 5E9016B6122B3617005F07D4 /* PBXTextBookmark */;
+			5E9016BA122B3617005F07D4 = 5E9016BA122B3617005F07D4 /* PBXTextBookmark */;
+			5E9016CC122B389D005F07D4 = 5E9016CC122B389D005F07D4 /* PBXTextBookmark */;
+			5E9016D9122B389D005F07D4 = 5E9016D9122B389D005F07D4 /* PBXTextBookmark */;
+			5EB5C4B3123EAA8E0086EC27 = 5EB5C4B3123EAA8E0086EC27 /* PBXTextBookmark */;
+			5EB5C4B9123EAA8E0086EC27 = 5EB5C4B9123EAA8E0086EC27 /* PBXTextBookmark */;
+			5EB5C4BE123EAA8E0086EC27 = 5EB5C4BE123EAA8E0086EC27 /* PBXTextBookmark */;
+			5EB5C4C1123EAA8E0086EC27 = 5EB5C4C1123EAA8E0086EC27 /* PBXTextBookmark */;
+			5ED992601237EC7300ABF0D9 = 5ED992601237EC7300ABF0D9 /* PBXTextBookmark */;
+			5ED992611237EC7300ABF0D9 = 5ED992611237EC7300ABF0D9 /* PBXTextBookmark */;
+			5ED99319123814CD00ABF0D9 = 5ED99319123814CD00ABF0D9 /* PBXTextBookmark */;
+			5ED9931E123814CD00ABF0D9 = 5ED9931E123814CD00ABF0D9 /* PBXTextBookmark */;
+			5ED9936312382C0700ABF0D9 = 5ED9936312382C0700ABF0D9 /* PBXTextBookmark */;
+			5ED9940D1239377700ABF0D9 = 5ED9940D1239377700ABF0D9 /* PBXTextBookmark */;
+			5EEA7D4E1281C08A00F75FD0 = 5EEA7D4E1281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D4F1281C08A00F75FD0 = 5EEA7D4F1281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D501281C08A00F75FD0 = 5EEA7D501281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D511281C08A00F75FD0 = 5EEA7D511281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D521281C08A00F75FD0 = 5EEA7D521281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D531281C08A00F75FD0 = 5EEA7D531281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D541281C08A00F75FD0 = 5EEA7D541281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D551281C08A00F75FD0 = 5EEA7D551281C08A00F75FD0 /* PBXTextBookmark */;
+			5EEA7D561281C08A00F75FD0 = 5EEA7D561281C08A00F75FD0 /* PBXTextBookmark */;
+			5EF0DB32123AB08D0018410C = 5EF0DB32123AB08D0018410C /* PBXTextBookmark */;
+			5EF0DB5A123AC02C0018410C = 5EF0DB5A123AC02C0018410C /* PBXTextBookmark */;
+		};
+		sourceControlManager = 5E86BA7112119233002B8A46 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	5E385D7414BF3AA100D74F0E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA81121193B5002B8A46 /* main.c */;
+		name = "main.c: 64";
+		rLen = 0;
+		rLoc = 2395;
+		rType = 0;
+		vrLen = 583;
+		vrLoc = 0;
+	};
+	5E3BBF13122B066D00E68738 /* InitializeBeatVariables.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1020, 2688}}";
+			sepNavSelRange = "{3970, 0}";
+			sepNavVisRange = "{3740, 463}";
+			sepNavWindowFrame = "{{38, 293}, {543, 459}}";
+		};
+	};
+	5E3BBF17122B067C00E68738 /* InitializeBeatVariables.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1278, 2086}}";
+			sepNavSelRange = "{85, 0}";
+			sepNavVisRange = "{8344, 1079}";
+			sepNavWindowFrame = "{{15, 314}, {543, 459}}";
+		};
+	};
+	5E3BBF41122B0AF000E68738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E3BBF13122B066D00E68738 /* InitializeBeatVariables.c */;
+		name = "InitializeBeatVariables.c: 1";
+		rLen = 0;
+		rLoc = 4524;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	5E3BBF42122B0AF000E68738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E3BBF17122B067C00E68738 /* InitializeBeatVariables.h */;
+		name = "InitializeBeatVariables.h: 1";
+		rLen = 0;
+		rLoc = 9428;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	5E4ECE03123AC23C00558A5E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90154E122B1BE2005F07D4 /* BeatTracker.h */;
+		name = "BeatTracker.h: 1";
+		rLen = 43;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 456;
+		vrLoc = 0;
+	};
+	5E76FFE212147D940045BF59 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E76FFE312147D940045BF59 /* yprime.c */;
+		name = "yprime.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 353;
+		vrLoc = 2033;
+	};
+	5E76FFE312147D940045BF59 /* yprime.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = yprime.c;
+		path = /Users/davidgrunberg/Documents/MATLAB/yprime.c;
+		sourceTree = "<absolute>";
+	};
+	5E76FFE712147D940045BF59 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E76FFE812147D940045BF59 /* yprime.c */;
+		name = "yprime.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 353;
+		vrLoc = 2033;
+	};
+	5E76FFE812147D940045BF59 /* yprime.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = yprime.c;
+		path = /Users/davidgrunberg/Documents/MATLAB/yprime.c;
+		sourceTree = "<absolute>";
+	};
+	5E86BA6D1211922A002B8A46 /* BeatTracker */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = BeatTracker;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+	};
+	5E86BA7012119233002B8A46 /* portaudio.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {636, 16660}}";
+			sepNavSelRange = "{0, 39}";
+			sepNavVisRange = "{1589, 423}";
+		};
+	};
+	5E86BA7112119233002B8A46 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	5E86BA7212119233002B8A46 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	5E86BA81121193B5002B8A46 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 7084}}";
+			sepNavSelRange = "{2395, 0}";
+			sepNavVisRange = "{0, 583}";
+		};
+	};
+	5E86BA99121194F2002B8A46 /* main.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 253}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 0}";
+			sepNavWindowFrame = "{{15, 314}, {543, 459}}";
+		};
+	};
+	5E86BAC81211CBEA002B8A46 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA81121193B5002B8A46 /* main.c */;
+		name = "main.c: 61";
+		rLen = 0;
+		rLoc = 2488;
+		rType = 0;
+		vrLen = 354;
+		vrLoc = 2195;
+	};
+	5E86BAC91211CBEA002B8A46 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA99121194F2002B8A46 /* main.h */;
+		name = "main.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	5E8CAF8012469547001068ED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5EB5C4DE123EAA8E0086EC27 /* C1.c */;
+		name = "C1.c: 2";
+		rLen = 0;
+		rLoc = 11;
+		rType = 0;
+		vrLen = 561;
+		vrLoc = 473;
+	};
+	5E8CAF9A1246B261001068ED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5ED9940E1239377700ABF0D9 /* sfprocess.c */;
+		name = "sfprocess.c: 170";
+		rLen = 0;
+		rLoc = 7052;
+		rType = 0;
+		vrLen = 401;
+		vrLoc = 6769;
+	};
+	5E8CAF9B1246B261001068ED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5EB5C4DA123EAA8E0086EC27 /* BeatTracker.c */;
+		name = "BeatTracker.c: 314";
+		rLen = 0;
+		rLoc = 14339;
+		rType = 0;
+		vrLen = 610;
+		vrLoc = 8397;
+	};
+	5E8CAF9C1246B261001068ED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E8CAF9D1246B261001068ED /* InitializeBeatVariables.h */;
+		name = "InitializeBeatVariables.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 708;
+		vrLoc = 0;
+	};
+	5E8CAF9D1246B261001068ED /* InitializeBeatVariables.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = InitializeBeatVariables.h;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/InitializeBeatVariables.h";
+		sourceTree = "<absolute>";
+	};
+	5E8CAFA31246B261001068ED /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E8CAFA41246B261001068ED /* InitializeBeatVariables.h */;
+		name = "InitializeBeatVariables.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 708;
+		vrLoc = 0;
+	};
+	5E8CAFA41246B261001068ED /* InitializeBeatVariables.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = InitializeBeatVariables.h;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/InitializeBeatVariables.h";
+		sourceTree = "<absolute>";
+	};
+	5E8CAFA61246B261001068ED /* InitializeBeatVariables.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = InitializeBeatVariables.c;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/InitializeBeatVariables.c";
+		sourceTree = "<absolute>";
+	};
+	5E901479122B1242005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90147A122B1242005F07D4 /* CInitFinal.c */;
+		name = "CInitFinal.c: 1";
+		rLen = 8118;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 363;
+		vrLoc = 0;
+	};
+	5E90147A122B1242005F07D4 /* CInitFinal.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = CInitFinal.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/CInitFinal.c";
+		sourceTree = "<absolute>";
+	};
+	5E90147F122B1242005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901480122B1242005F07D4 /* CInitFinal.c */;
+		name = "CInitFinal.c: 1";
+		rLen = 8118;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 363;
+		vrLoc = 0;
+	};
+	5E901480122B1242005F07D4 /* CInitFinal.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = CInitFinal.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/CInitFinal.c";
+		sourceTree = "<absolute>";
+	};
+	5E901503122B18B0005F07D4 /* BeatTrackerMath.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {594, 434}}";
+			sepNavSelRange = "{545, 0}";
+			sepNavVisRange = "{206, 809}";
+			sepNavWindowFrame = "{{41, 227}, {543, 459}}";
+		};
+	};
+	5E901504122B18B0005F07D4 /* BeatTrackerMath.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 3458}}";
+			sepNavSelRange = "{219, 0}";
+			sepNavVisRange = "{0, 362}";
+		};
+	};
+	5E901515122B1AB7005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901503122B18B0005F07D4 /* BeatTrackerMath.h */;
+		name = "BeatTrackerMath.h: 1";
+		rLen = 0;
+		rLoc = 52;
+		rType = 0;
+		vrLen = 153;
+		vrLoc = 0;
+	};
+	5E901519122B1AB7005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901504122B18B0005F07D4 /* BeatTrackerMath.c */;
+		name = "BeatTrackerMath.c: 24";
+		rLen = 0;
+		rLoc = 244;
+		rType = 0;
+		vrLen = 588;
+		vrLoc = 301;
+	};
+	5E90154E122B1BE2005F07D4 /* BeatTracker.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 462}}";
+			sepNavSelRange = "{0, 43}";
+			sepNavVisRange = "{0, 456}";
+		};
+	};
+	5E90154F122B1BE2005F07D4 /* BeatTracker.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {702, 5950}}";
+			sepNavSelRange = "{607, 0}";
+			sepNavVisRange = "{277, 869}";
+			sepNavWindowFrame = "{{15, 314}, {543, 459}}";
+		};
+	};
+	5E901562122B2084005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901563122B2084005F07D4 /* C2_Redo.c */;
+		name = "C2_Redo.c: 36";
+		rLen = 0;
+		rLoc = 601;
+		rType = 0;
+		vrLen = 290;
+		vrLoc = 435;
+	};
+	5E901563122B2084005F07D4 /* C2_Redo.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C2_Redo.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C2_Redo.c";
+		sourceTree = "<absolute>";
+	};
+	5E901570122B2084005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90154E122B1BE2005F07D4 /* BeatTracker.h */;
+		name = "BeatTracker.h: 1";
+		rLen = 0;
+		rLoc = 44;
+		rType = 0;
+		vrLen = 149;
+		vrLoc = 0;
+	};
+	5E901572122B2084005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90154F122B1BE2005F07D4 /* BeatTracker.c */;
+		name = "BeatTracker.c: 12";
+		rLen = 0;
+		rLoc = 293;
+		rType = 0;
+		vrLen = 190;
+		vrLoc = 0;
+	};
+	5E901582122B2084005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901583122B2084005F07D4 /* C1.c */;
+		name = "C1.c: 1";
+		rLen = 13308;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E901583122B2084005F07D4 /* C1.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C1.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C1.c";
+		sourceTree = "<absolute>";
+	};
+	5E90158D122B2084005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90158E122B2084005F07D4 /* C2_Redo.c */;
+		name = "C2_Redo.c: 36";
+		rLen = 0;
+		rLoc = 601;
+		rType = 0;
+		vrLen = 290;
+		vrLoc = 435;
+	};
+	5E90158E122B2084005F07D4 /* C2_Redo.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C2_Redo.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C2_Redo.c";
+		sourceTree = "<absolute>";
+	};
+	5E9015D2122B23B4005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9015D3122B23B4005F07D4 /* C3.c */;
+		name = "C3.c: 1";
+		rLen = 1639;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
+	};
+	5E9015D3122B23B4005F07D4 /* C3.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C3.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C3.c";
+		sourceTree = "<absolute>";
+	};
+	5E9015D9122B23B4005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9015DA122B23B4005F07D4 /* C3.c */;
+		name = "C3.c: 1";
+		rLen = 1639;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
+	};
+	5E9015DA122B23B4005F07D4 /* C3.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C3.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C3.c";
+		sourceTree = "<absolute>";
+	};
+	5E9015E2122B24D1005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9015E3122B24D1005F07D4 /* C4.c */;
+		name = "C4.c: 1";
+		rLen = 2551;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	5E9015E3122B24D1005F07D4 /* C4.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C4.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C4.c";
+		sourceTree = "<absolute>";
+	};
+	5E9015E8122B24D1005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9015E9122B24D1005F07D4 /* C4.c */;
+		name = "C4.c: 1";
+		rLen = 2551;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	5E9015E9122B24D1005F07D4 /* C4.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C4.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C4.c";
+		sourceTree = "<absolute>";
+	};
+	5E9015F6122B2676005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9015F7122B2676005F07D4 /* C5.c */;
+		name = "C5.c: 1";
+		rLen = 13696;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E9015F7122B2676005F07D4 /* C5.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C5.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C5.c";
+		sourceTree = "<absolute>";
+	};
+	5E9015FC122B2676005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9015FD122B2676005F07D4 /* C5.c */;
+		name = "C5.c: 1";
+		rLen = 13696;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E9015FD122B2676005F07D4 /* C5.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C5.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C5.c";
+		sourceTree = "<absolute>";
+	};
+	5E901606122B27B3005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901607122B27B3005F07D4 /* C5_5.c */;
+		name = "C5_5.c: 1";
+		rLen = 13415;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 3401;
+	};
+	5E901607122B27B3005F07D4 /* C5_5.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C5_5.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C5_5.c";
+		sourceTree = "<absolute>";
+	};
+	5E90160D122B27B3005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90160E122B27B3005F07D4 /* C5_5.c */;
+		name = "C5_5.c: 1";
+		rLen = 13415;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 593;
+		vrLoc = 3401;
+	};
+	5E90160E122B27B3005F07D4 /* C5_5.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C5_5.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C5_5.c";
+		sourceTree = "<absolute>";
+	};
+	5E90161C122B295A005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90161D122B295A005F07D4 /* C6.c */;
+		name = "C6.c: 1";
+		rLen = 14184;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E90161D122B295A005F07D4 /* C6.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C6.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C6.c";
+		sourceTree = "<absolute>";
+	};
+	5E901623122B295A005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901624122B295A005F07D4 /* C6.c */;
+		name = "C6.c: 1";
+		rLen = 14184;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E901624122B295A005F07D4 /* C6.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C6.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C6.c";
+		sourceTree = "<absolute>";
+	};
+	5E90163E122B2E6B005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90163F122B2E6B005F07D4 /* C7.c */;
+		name = "C7.c: 1";
+		rLen = 13562;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E90163F122B2E6B005F07D4 /* C7.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C7.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C7.c";
+		sourceTree = "<absolute>";
+	};
+	5E901646122B2E6B005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901647122B2E6B005F07D4 /* C7.c */;
+		name = "C7.c: 1";
+		rLen = 13562;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
+	};
+	5E901647122B2E6B005F07D4 /* C7.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C7.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C7.c";
+		sourceTree = "<absolute>";
+	};
+	5E90165E122B2F8D005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90165F122B2F8D005F07D4 /* C8.c */;
+		name = "C8.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 779;
+		vrLoc = 13500;
+	};
+	5E90165F122B2F8D005F07D4 /* C8.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C8.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C8.c";
+		sourceTree = "<absolute>";
+	};
+	5E90166C122B31BB005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90165F122B2F8D005F07D4 /* C8.c */;
+		name = "C8.c: 556";
+		rLen = 0;
+		rLoc = 15301;
+		rType = 0;
+		vrLen = 295;
+		vrLoc = 15001;
+	};
+	5E901694122B34A2005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901695122B34A2005F07D4 /* C9.c */;
+		name = "C9.c: 1";
+		rLen = 4689;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	5E901695122B34A2005F07D4 /* C9.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C9.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C9.c";
+		sourceTree = "<absolute>";
+	};
+	5E901699122B34A2005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90169A122B34A2005F07D4 /* C9.c */;
+		name = "C9.c: 1";
+		rLen = 4689;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	5E90169A122B34A2005F07D4 /* C9.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C9.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C9.c";
+		sourceTree = "<absolute>";
+	};
+	5E9016A7122B35D4005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9016A8122B35D4005F07D4 /* C10.c */;
+		name = "C10.c: 1";
+		rLen = 2983;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	5E9016A8122B35D4005F07D4 /* C10.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C10.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C10.c";
+		sourceTree = "<absolute>";
+	};
+	5E9016AC122B35D4005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9016AD122B35D4005F07D4 /* C10.c */;
+		name = "C10.c: 1";
+		rLen = 2983;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 337;
+		vrLoc = 0;
+	};
+	5E9016AD122B35D4005F07D4 /* C10.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C10.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C10.c";
+		sourceTree = "<absolute>";
+	};
+	5E9016B6122B3617005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9016B7122B3617005F07D4 /* C11.c */;
+		name = "C11.c: 1";
+		rLen = 2251;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
+	};
+	5E9016B7122B3617005F07D4 /* C11.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C11.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C11.c";
+		sourceTree = "<absolute>";
+	};
+	5E9016BA122B3617005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9016BB122B3617005F07D4 /* C11.c */;
+		name = "C11.c: 1";
+		rLen = 2251;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 361;
+		vrLoc = 0;
+	};
+	5E9016BB122B3617005F07D4 /* C11.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C11.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C11.c";
+		sourceTree = "<absolute>";
+	};
+	5E9016CC122B389D005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9016CD122B389D005F07D4 /* C12.c */;
+		name = "C12.c: 1";
+		rLen = 13169;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 627;
+		vrLoc = 3071;
+	};
+	5E9016CD122B389D005F07D4 /* C12.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C12.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C12.c";
+		sourceTree = "<absolute>";
+	};
+	5E9016D9122B389D005F07D4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E9016DA122B389D005F07D4 /* C12.c */;
+		name = "C12.c: 1";
+		rLen = 13169;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 627;
+		vrLoc = 3071;
+	};
+	5E9016DA122B389D005F07D4 /* C12.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C12.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C12.c";
+		sourceTree = "<absolute>";
+	};
+	5EB5C4B3123EAA8E0086EC27 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5EB5C4B4123EAA8E0086EC27 /* BeatTrackerMath.c */;
+		name = "BeatTrackerMath.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 0;
+	};
+	5EB5C4B4123EAA8E0086EC27 /* BeatTrackerMath.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = BeatTrackerMath.c;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/BeatTrackerMath.c";
+		sourceTree = "<absolute>";
+	};
+	5EB5C4B9123EAA8E0086EC27 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E90154F122B1BE2005F07D4 /* BeatTracker.c */;
+		name = "BeatTracker.c: 20";
+		rLen = 0;
+		rLoc = 607;
+		rType = 0;
+		vrLen = 869;
+		vrLoc = 277;
+	};
+	5EB5C4BE123EAA8E0086EC27 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5EB5C4BF123EAA8E0086EC27 /* BeatTracker.c */;
+		name = "BeatTracker.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 14213;
+	};
+	5EB5C4BF123EAA8E0086EC27 /* BeatTracker.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = BeatTracker.c;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/BeatTracker.c";
+		sourceTree = "<absolute>";
+	};
+	5EB5C4C1123EAA8E0086EC27 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5EB5C4C2123EAA8E0086EC27 /* BeatTrackerMath.c */;
+		name = "BeatTrackerMath.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 0;
+	};
+	5EB5C4C2123EAA8E0086EC27 /* BeatTrackerMath.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = BeatTrackerMath.c;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/BeatTrackerMath.c";
+		sourceTree = "<absolute>";
+	};
+	5EB5C4DA123EAA8E0086EC27 /* BeatTracker.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = BeatTracker.c;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/BeatTracker.c";
+		sourceTree = "<absolute>";
+	};
+	5EB5C4DE123EAA8E0086EC27 /* C1.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = C1.c;
+		path = "/Users/davidgrunberg/Documents/MATLAB/Beat tracking stuff/C1.c";
+		sourceTree = "<absolute>";
+	};
+	5ED992601237EC7300ABF0D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6A0FF2C0290799A04C91782 /* BeatTracker.1 */;
+		name = "BeatTracker.1: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 924;
+		vrLoc = 0;
+	};
+	5ED992611237EC7300ABF0D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C6A0FF2C0290799A04C91782 /* BeatTracker.1 */;
+		name = "BeatTracker.1: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 924;
+		vrLoc = 0;
+	};
+	5ED99319123814CD00ABF0D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5ED9931A123814CD00ABF0D9 /* InitializeBeatVariables.h */;
+		name = "InitializeBeatVariables.h: 64";
+		rLen = 0;
+		rLoc = 2775;
+		rType = 0;
+		vrLen = 825;
+		vrLoc = 2695;
+	};
+	5ED9931A123814CD00ABF0D9 /* InitializeBeatVariables.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = InitializeBeatVariables.h;
+		path = "/Users/davidgrunberg/Documents/Beat application versions/SummerVersion/BeatTracker/InitializeBeatVariables.h";
+		sourceTree = "<absolute>";
+	};
+	5ED9931E123814CD00ABF0D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5ED9931F123814CD00ABF0D9 /* InitializeBeatVariables.h */;
+		name = "InitializeBeatVariables.h: 64";
+		rLen = 0;
+		rLoc = 2775;
+		rType = 0;
+		vrLen = 825;
+		vrLoc = 2695;
+	};
+	5ED9931F123814CD00ABF0D9 /* InitializeBeatVariables.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = InitializeBeatVariables.h;
+		path = "/Users/davidgrunberg/Documents/Beat application versions/SummerVersion/BeatTracker/InitializeBeatVariables.h";
+		sourceTree = "<absolute>";
+	};
+	5ED9936312382C0700ABF0D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901504122B18B0005F07D4 /* BeatTrackerMath.c */;
+		name = "BeatTrackerMath.c: 12";
+		rLen = 0;
+		rLoc = 219;
+		rType = 0;
+		vrLen = 362;
+		vrLoc = 0;
+	};
+	5ED9940D1239377700ABF0D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5ED9940E1239377700ABF0D9 /* sfprocess.c */;
+		name = "sfprocess.c: 36";
+		rLen = 0;
+		rLoc = 2127;
+		rType = 0;
+		vrLen = 684;
+		vrLoc = 1273;
+	};
+	5ED9940E1239377700ABF0D9 /* sfprocess.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = sfprocess.c;
+		path = "/Users/davidgrunberg/Documents/libsndfile-1.0.21/examples/sfprocess.c";
+		sourceTree = "<absolute>";
+	};
+	5EEA7D4E1281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E8CAFA61246B261001068ED /* InitializeBeatVariables.c */;
+		name = "InitializeBeatVariables.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 558;
+		vrLoc = 0;
+	};
+	5EEA7D4F1281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E3BBF13122B066D00E68738 /* InitializeBeatVariables.c */;
+		name = "InitializeBeatVariables.c: 150";
+		rLen = 0;
+		rLoc = 3970;
+		rType = 0;
+		vrLen = 484;
+		vrLoc = 3743;
+	};
+	5EEA7D501281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA99121194F2002B8A46 /* main.h */;
+		name = "main.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	5EEA7D511281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA81121193B5002B8A46 /* main.c */;
+		name = "main.c: 283";
+		rLen = 0;
+		rLoc = 7848;
+		rType = 0;
+		vrLen = 497;
+		vrLoc = 7704;
+	};
+	5EEA7D521281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E8CAFA61246B261001068ED /* InitializeBeatVariables.c */;
+		name = "InitializeBeatVariables.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 558;
+		vrLoc = 0;
+	};
+	5EEA7D531281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E3BBF13122B066D00E68738 /* InitializeBeatVariables.c */;
+		name = "InitializeBeatVariables.c: 150";
+		rLen = 0;
+		rLoc = 3970;
+		rType = 0;
+		vrLen = 484;
+		vrLoc = 3743;
+	};
+	5EEA7D541281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA81121193B5002B8A46 /* main.c */;
+		name = "main.c: 283";
+		rLen = 0;
+		rLoc = 7848;
+		rType = 0;
+		vrLen = 497;
+		vrLoc = 7704;
+	};
+	5EEA7D551281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA99121194F2002B8A46 /* main.h */;
+		name = "main.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 0;
+	};
+	5EEA7D561281C08A00F75FD0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E86BA81121193B5002B8A46 /* main.c */;
+		name = "main.c: 64";
+		rLen = 0;
+		rLoc = 2395;
+		rType = 0;
+		vrLen = 583;
+		vrLoc = 0;
+	};
+	5EF0DB32123AB08D0018410C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E3BBF17122B067C00E68738 /* InitializeBeatVariables.h */;
+		name = "InitializeBeatVariables.h: 3";
+		rLen = 0;
+		rLoc = 85;
+		rType = 0;
+		vrLen = 1079;
+		vrLoc = 8344;
+	};
+	5EF0DB5A123AC02C0018410C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5E901503122B18B0005F07D4 /* BeatTrackerMath.h */;
+		name = "BeatTrackerMath.h: 19";
+		rLen = 0;
+		rLoc = 545;
+		rType = 0;
+		vrLen = 809;
+		vrLoc = 206;
+	};
+	8DD76FA90486AB0100D96B5E /* BeatTracker */ = {
+		activeExec = 0;
+		executables = (
+			5E86BA6D1211922A002B8A46 /* BeatTracker */,
+		);
+	};
+	C6A0FF2C0290799A04C91782 /* BeatTracker.1 */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {546, 1050}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 924}";
+		};
+	};
+}
