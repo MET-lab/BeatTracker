@@ -9,7 +9,7 @@
 #define numSubbands 8
 #define numPDFs 5
 #define timeInHistory 5.95
-#define autoCorrSize (int) round(timeInHistory*fs/frameSize)
+#define autoCorrSize 256//round(timeInHistory*fs/frameSize)
 //int fs ; //Sampling frequency
 //float timeInHistory ; //Length of time (in seconds) used for autocorrelation and energy histories
 //int numSubbands ; //Number of subbands
