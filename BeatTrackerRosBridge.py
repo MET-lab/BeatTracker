@@ -17,6 +17,7 @@ if __name__ == '__main__':
     UDP_IP = "127.0.0.1"
     UDP_PORT = 9930 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) 
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind((UDP_IP, UDP_PORT)) 
     #Infinite loop that tries to receive data from UDP
     try:
@@ -25,10 +26,11 @@ if __name__ == '__main__':
             data, addr = sock.recvfrom(70) #Does not continue until it receives a message, hopefully every beat
             print "received message:", data
             if toggle:
-                msg = PythonMessage("RSP", "position", "-.2", "")
+                msg = PythonMessage("RSR", "position", "-.2", "")
             else:
-                msg = PythonMessage("RSP", "position", ".2", "")
+                msg = PythonMessage("RSR", "position", ".2", "")
             toggle = not toggle
             pub.publish(msg)
     except Exception, e:
+        sock.close()
         raise e
