@@ -1,17 +1,17 @@
 /** @file patest_wire.c
- @ingroup test_src
- @brief Pass input directly to output.
- 
- Note that some HW devices, for example many ISA audio cards
- on PCs, do NOT support full duplex! For a PC, you normally need
- a PCI based audio card such as the SBLive.
- 
- @author Phil Burk  http://www.softsynth.com
- 
- While adapting to V19-API, I excluded configs with framesPerCallback=0
- because of an assert in file pa_common/pa_process.c. Pieter, Oct 9, 2003.
- 
- */
+  @ingroup test_src
+  @brief Pass input directly to output.
+
+  Note that some HW devices, for example many ISA audio cards
+  on PCs, do NOT support full duplex! For a PC, you normally need
+  a PCI based audio card such as the SBLive.
+
+  @author Phil Burk  http://www.softsynth.com
+
+  While adapting to V19-API, I excluded configs with framesPerCallback=0
+  because of an assert in file pa_common/pa_process.c. Pieter, Oct 9, 2003.
+
+*/
 /*
  * $Id$
  *
@@ -28,7 +28,7 @@
  * subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be
- B* included in all copies or substantial portions of the Software.
+ * included in all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
@@ -89,13 +89,13 @@ double TimeVar;
 
 //Define a structure for the audio stream
 typedef struct WireConfig_s
-  {
-    int isInputInterleaved;
-    int isOutputInterleaved;
-    int numInputChannels;
-    int numOutputChannels;
-    int framesPerCallback;
- } WireConfig_t;
+{
+  int isInputInterleaved;
+  int isOutputInterleaved;
+  int numInputChannels;
+  int numOutputChannels;
+  int framesPerCallback;
+} WireConfig_t;
 
 
 
@@ -149,382 +149,381 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
 static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned long framesPerBuffer, const PaStreamCallbackTimeInfo* timeInfo, PaStreamCallbackFlags statusFlags, void *userData )
 {
   //Define input and output variables
-    INPUT_SAMPLE *in;
-    OUTPUT_SAMPLE *out;
-    int inStride;
-    int outStride;
-    int inDone = 0;
-    int outDone = 0;
-    WireConfig_t *config = (WireConfig_t *) userData;
-    unsigned int i;
-    int inChannel, outChannel;
-    time_t tStart = clock();
-  
-    /* This may get called with NULL inputBuffer during initial setup. */
-    if( inputBuffer == NULL) return 0;
-  
-    //Get an audio frame
-    inChannel=0;
-    outChannel=0;
-    while( !(inDone && outDone) )
-    {
-        if( config->isInputInterleaved )
-        {
-            in = ((INPUT_SAMPLE*)inputBuffer) + inChannel;
-            inStride = config->numInputChannels;
-        }
-        else
-        {
-            in = ((INPUT_SAMPLE**)inputBuffer)[inChannel];
-            inStride = 1;
-        }
-        //BEAT TRACKING CODE
-        BeatTrackFrame(in, beatHere);
-  
-        if (beatPing==1){
-          in[0]=1;
-          //sprintf(buf, "%c%c",(char)255,(char)116);
-          //sendto(s, buf, BUFLEN, 0, &si_other, slen);
-          //if (fNum-lastBeatLocation[1]>120)
-          //{
-            
-          lastBeatLocation[0] = lastBeatLocation[1];
-          lastBeatLocation[1] = fNum;
-          beatDifferences = lastBeatLocation[1]-lastBeatLocation[0];
-          //}
-          beatDifferencesx[0] = beatDifferences;
-          beatDifferencesx[1] = beatDifferences*2;
-          beatDifferencesx[2] = beatDifferences*3;
-          
-          //while (beatDifferences<120)
-          //{
-          //  beatDifferences = beatDifferences+beatDifferencesO;
-          //}
-          //  out[0]=1;
-        }
-        //END BEAT TRACKING CODE
-    
-        if (fNum>200)
-        {
-          //if (fNum==lastBeatLocation[1]+beatDifferences/2) {
-            
-          //}
-          
-          if ((fNum==lastBeatLocation[1]+beatDifferencesx[0]/2)) //&& beatDifferences>40 && beatDifferences<60 && fNum-lastBeatLocation[1]>=61)
-          {
-            if (beatDifferences<24)
-            {
-              //  beatDifferences=beatDifferences*2;
-            }
-            beatDifferencesO = round((double) (beatDifferences-4)*1024.0/44100.0*100.0);
-            //printf("Beat Difference: %i\n",beatDifferencesO);
-            //sprintf(buf, "%c%c%c%c%c", (char)255,'r','g',(char)beatDifferencesO,(char)47);
-            //buf[0] = beatDifferencesO;
-            //buf[1] = fNum;
-            buf[0]=255;
-            buf[1]=103;
-            buf[2]=114;
-            buf[3]=beatDifferencesO;
-            if (beatDifferences>=17 && fNum-beatSend>15)
-            {
-              
-            //  buf[4] = fmod(round((fNum+in[0]*109)),20);
-            //  if (buf[4]<16)
-            //  {
-            //    buf[4]=51;
-            //  }
-            //  else if (buf[4]<19)
-            //  {
-            //    buf[4]=47;
-            //  }
-            //  else if (buf[4]==19)
-            //  {
-            //    buf[4]=52;
-            //  }
-            //  if (buf[4]==51 || buf[4]==52)
-            //  {
-            //    if (beatDifferences<24)
-            //    {
-            //      buf[3]=buf[3]*2;
-            //    }
-            //  }
-            
-            //buf[4]=47;
-            //if (beatDifferencesO>100)
-            //{
-              buf[4] = GesBuf2[myIndex];
-              myIndex=myIndex+1;
-              //Get the time
-              gettimeofday(&currentTime, NULL);
-              TimeVar = currentTime.tv_sec+((double)currentTime.tv_usec/100000);
-              printf("UDP spot %i\n",buf[4]);
-              //printf("TimeVar: %f\n",TimeVar);
-              buf3[0] = 255;
-              buf3[1] = 116;
-              if (buf[4]>1)
-              {
-                sendto(s, buf3, 2, 0, (struct sockaddr *)&si_other, slen);
-                beatSend = fNum;
-                //printf("Sent UDP packet.\n\n");
-              }
-              //printf("Time Diff: %f\n", (double)Pa_GetStreamTime());
-              //tStart=clock();
-            }
-          }
-        }
-        
-        //Play the audio
-        if( config->isOutputInterleaved )
-        {
-            out = ((OUTPUT_SAMPLE*)outputBuffer) + outChannel;
-            outStride = config->numOutputChannels;
-        }
-        else
-        {
-            out = ((OUTPUT_SAMPLE**)outputBuffer)[outChannel];
-            outStride = 1;
-        }
-    
-    
-        for( i=0; i<framesPerBuffer; i++ )
-        {
-            *out = CONVERT_IN_TO_OUT(*in );
-            out += outStride;
-            in += inStride;
-        }
-    
-        if(inChannel < (config->numInputChannels - 1)) inChannel++;
-        else inDone = 1;
-        if(outChannel < (config->numOutputChannels - 1)) outChannel++;
-        else outDone = 1;
-    }
-    return 0;
-}
+  INPUT_SAMPLE *in;
+  OUTPUT_SAMPLE *out;
+  int inStride;
+  int outStride;
+  int inDone = 0;
+  int outDone = 0;
+  WireConfig_t *config = (WireConfig_t *) userData;
+  unsigned int i;
+  int inChannel, outChannel;
+  time_t tStart = clock();
 
-/*******************************************************************/
-int main(void);
-int main(void)
-{
-  //Set up some variables for PortAudio
-    PaError err = paNoError;
-    WireConfig_t CONFIG;
-    WireConfig_t *config = &CONFIG;
-  
-  
-  
-  //BEAT TRACKER CODE
-  InitializeBeatVariables();
-  lastBeatLocation[0] = 0;
-  lastBeatLocation[1] = 0;
-  beatDifferences = 0;
-  beatSend = 0;
-  //END BEAT TRACKER CODE
-  
-  //SERIAL INITIALIZATION CODE
-  s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-  buf[0]=255;
-  buf[1]=103;
-  buf[2]=114;
-  memset((char *) &si_other, 0, sizeof(si_other));
-  si_other.sin_family = AF_INET;
-  si_other.sin_port = htons(PORT);
-  if (inet_aton(SRV_IP, &si_other.sin_addr)==0) {
-    fprintf(stderr, "inet_aton() failed\n");
-    exit(1);
-  }
-  
-  GesBuf[0]=47;
-  GesBuf[1]=47;
-  GesBuf[2]=47;
-  GesBuf[3]=47;
-  GesBuf[4]=47;
-  GesBuf[5]=47;
-  GesBuf[6]=47;
-  GesBuf[7]=47;
-  GesBuf[8]=47;
-  GesBuf[9]=47;
-  GesBuf[10]=48;
-  GesBuf[11]=48;
-  GesBuf[12]=48;
-  GesBuf[13]=48;
-  GesBuf[14]=48;
-  GesBuf[15]=48;
-  GesBuf[16]=48;
-  GesBuf[17]=48;
-  GesBuf[18]=49;
-  GesBuf[19]=50;
-  GesBuf[20]=49;
-  GesBuf[21]=50;
-  GesBuf[22]=49;
-  GesBuf[23]=50;
-  GesBuf[24]=49;
-  GesBuf[25]=50;
-  GesBuf[26]=47;
-  GesBuf[27]=47;
-  GesBuf[28]=47;
-  GesBuf[29]=47;
-  GesBuf[30]=47;
-  GesBuf[31]=47;
-  GesBuf[32]=47;
-  GesBuf[33]=47;
-  GesBuf[34]=47;
-  GesBuf[35]=47;
-  GesBuf[36]=47;
-  GesBuf[37]=47;
-  GesBuf[38]=47;
-  GesBuf[39]=48;
-  GesBuf[40]=48;
-  GesBuf[41]=48;
-  GesBuf[42]=48;
-  GesBuf[43]=48;
-  GesBuf[44]=48;
-  GesBuf[45]=48;
-  GesBuf[46]=48;
-  GesBuf[47]=49;
-  GesBuf[48]=50;
-  GesBuf[49]=49;
-  GesBuf[50]=50;
-  GesBuf[51]=49;
-  GesBuf[52]=50;
-  GesBuf[53]=49;
-  GesBuf[54]=50;
-  myIndex=0;
-  
-  for (myIndex=0;myIndex<30000;myIndex++) {
-    if (fmod(myIndex,2)==0)
+  /* This may get called with NULL inputBuffer during initial setup. */
+  if( inputBuffer == NULL) return 0;
+
+  //Get an audio frame
+  inChannel=0;
+  outChannel=0;
+  while( !(inDone && outDone) )
+  {
+    if( config->isInputInterleaved )
     {
-      GesBuf2[myIndex]=51;
+      in = ((INPUT_SAMPLE*)inputBuffer) + inChannel;
+      inStride = config->numInputChannels;
     }
     else
     {
-      GesBuf2[myIndex]=52;
+      in = ((INPUT_SAMPLE**)inputBuffer)[inChannel];
+      inStride = 1;
     }
+    //BEAT TRACKING CODE
+    BeatTrackFrame(in, beatHere);
+
+    if (beatPing==1){
+      in[0]=1;
+      //sprintf(buf, "%c%c",(char)255,(char)116);
+      //sendto(s, buf, BUFLEN, 0, &si_other, slen);
+      //if (fNum-lastBeatLocation[1]>120)
+      //{
+
+      lastBeatLocation[0] = lastBeatLocation[1];
+      lastBeatLocation[1] = fNum;
+      beatDifferences = lastBeatLocation[1]-lastBeatLocation[0];
+      //}
+      beatDifferencesx[0] = beatDifferences;
+      beatDifferencesx[1] = beatDifferences*2;
+      beatDifferencesx[2] = beatDifferences*3;
+
+      //while (beatDifferences<120)
+      //{
+      //  beatDifferences = beatDifferences+beatDifferencesO;
+      //}
+      //  out[0]=1;
+    }
+    //END BEAT TRACKING CODE
+
+    if (fNum>200)
+    {
+      //if (fNum==lastBeatLocation[1]+beatDifferences/2) {
+
+      //}
+
+      if ((fNum==lastBeatLocation[1]+beatDifferencesx[0]/2)) //&& beatDifferences>40 && beatDifferences<60 && fNum-lastBeatLocation[1]>=61)
+      {
+        if (beatDifferences<24)
+        {
+          //  beatDifferences=beatDifferences*2;
+        }
+        beatDifferencesO = round((double) (beatDifferences-4)*1024.0/44100.0*100.0);
+        //printf("Beat Difference: %i\n",beatDifferencesO);
+        //sprintf(buf, "%c%c%c%c%c", (char)255,'r','g',(char)beatDifferencesO,(char)47);
+        //buf[0] = beatDifferencesO;
+        //buf[1] = fNum;
+        buf[0]=255;
+        buf[1]=103;
+        buf[2]=114;
+        buf[3]=beatDifferencesO;
+        if (beatDifferences>=17 && fNum-beatSend>15)
+        {
+
+          //  buf[4] = fmod(round((fNum+in[0]*109)),20);
+          //  if (buf[4]<16)
+          //  {
+          //    buf[4]=51;
+          //  }
+          //  else if (buf[4]<19)
+          //  {
+          //    buf[4]=47;
+          //  }
+          //  else if (buf[4]==19)
+          //  {
+          //    buf[4]=52;
+          //  }
+          //  if (buf[4]==51 || buf[4]==52)
+          //  {
+          //    if (beatDifferences<24)
+          //    {
+          //      buf[3]=buf[3]*2;
+          //    }
+          //  }
+
+          //buf[4]=47;
+          //if (beatDifferencesO>100)
+          //{
+          buf[4] = GesBuf2[myIndex];
+          myIndex=myIndex+1;
+          //Get the time
+          gettimeofday(&currentTime, NULL);
+          TimeVar = currentTime.tv_sec+((double)currentTime.tv_usec/100000);
+          printf("UDP spot %i\n",buf[4]);
+          //printf("TimeVar: %f\n",TimeVar);
+          buf3[0] = 255;
+          buf3[1] = 116;
+          if (buf[4]>1)
+          {
+            sendto(s, buf3, 2, 0, (struct sockaddr *)&si_other, slen);
+            beatSend = fNum;
+            //printf("Sent UDP packet.\n\n");
+          }
+          //printf("Time Diff: %f\n", (double)Pa_GetStreamTime());
+          //tStart=clock();
+        }
+        }
+      }
+
+      //Play the audio
+      if( config->isOutputInterleaved )
+      {
+        out = ((OUTPUT_SAMPLE*)outputBuffer) + outChannel;
+        outStride = config->numOutputChannels;
+      }
+      else
+      {
+        out = ((OUTPUT_SAMPLE**)outputBuffer)[outChannel];
+        outStride = 1;
+      }
+
+
+      for( i=0; i<framesPerBuffer; i++ )
+      {
+        *out = CONVERT_IN_TO_OUT(*in );
+        out += outStride;
+        in += inStride;
+      }
+
+      if(inChannel < (config->numInputChannels - 1)) inChannel++;
+      else inDone = 1;
+      if(outChannel < (config->numOutputChannels - 1)) outChannel++;
+      else outDone = 1;
+    }
+    return 0;
   }
-  myIndex=0;
-//END SERIAL INITIALIZATION CODE  
-  
-  //Check for errors
+
+  /*******************************************************************/
+  int main(void)
+  {
+    //Set up some variables for PortAudio
+    PaError err = paNoError;
+    WireConfig_t CONFIG;
+    WireConfig_t *config = &CONFIG;
+
+
+
+    //BEAT TRACKER CODE
+    InitializeBeatVariables();
+    lastBeatLocation[0] = 0;
+    lastBeatLocation[1] = 0;
+    beatDifferences = 0;
+    beatSend = 0;
+    //END BEAT TRACKER CODE
+
+    //SERIAL INITIALIZATION CODE
+    s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    buf[0]=255;
+    buf[1]=103;
+    buf[2]=114;
+    memset((char *) &si_other, 0, sizeof(si_other));
+    si_other.sin_family = AF_INET;
+    si_other.sin_port = htons(PORT);
+    if (inet_aton(SRV_IP, &si_other.sin_addr)==0) {
+      fprintf(stderr, "inet_aton() failed\n");
+      exit(1);
+    }
+
+    GesBuf[0]=47;
+    GesBuf[1]=47;
+    GesBuf[2]=47;
+    GesBuf[3]=47;
+    GesBuf[4]=47;
+    GesBuf[5]=47;
+    GesBuf[6]=47;
+    GesBuf[7]=47;
+    GesBuf[8]=47;
+    GesBuf[9]=47;
+    GesBuf[10]=48;
+    GesBuf[11]=48;
+    GesBuf[12]=48;
+    GesBuf[13]=48;
+    GesBuf[14]=48;
+    GesBuf[15]=48;
+    GesBuf[16]=48;
+    GesBuf[17]=48;
+    GesBuf[18]=49;
+    GesBuf[19]=50;
+    GesBuf[20]=49;
+    GesBuf[21]=50;
+    GesBuf[22]=49;
+    GesBuf[23]=50;
+    GesBuf[24]=49;
+    GesBuf[25]=50;
+    GesBuf[26]=47;
+    GesBuf[27]=47;
+    GesBuf[28]=47;
+    GesBuf[29]=47;
+    GesBuf[30]=47;
+    GesBuf[31]=47;
+    GesBuf[32]=47;
+    GesBuf[33]=47;
+    GesBuf[34]=47;
+    GesBuf[35]=47;
+    GesBuf[36]=47;
+    GesBuf[37]=47;
+    GesBuf[38]=47;
+    GesBuf[39]=48;
+    GesBuf[40]=48;
+    GesBuf[41]=48;
+    GesBuf[42]=48;
+    GesBuf[43]=48;
+    GesBuf[44]=48;
+    GesBuf[45]=48;
+    GesBuf[46]=48;
+    GesBuf[47]=49;
+    GesBuf[48]=50;
+    GesBuf[49]=49;
+    GesBuf[50]=50;
+    GesBuf[51]=49;
+    GesBuf[52]=50;
+    GesBuf[53]=49;
+    GesBuf[54]=50;
+    myIndex=0;
+
+    for (myIndex=0;myIndex<30000;myIndex++) {
+      if (fmod(myIndex,2)==0)
+      {
+        GesBuf2[myIndex]=51;
+      }
+      else
+      {
+        GesBuf2[myIndex]=52;
+      }
+    }
+    myIndex=0;
+    //END SERIAL INITIALIZATION CODE  
+
+    //Check for errors
     err = Pa_Initialize();
     if( err != paNoError )
-    ErrorOccurred(err);
-  //Set scaling variables for the audio
+      ErrorOccurred(err);
+    //Set scaling variables for the audio
     if( INPUT_FORMAT == OUTPUT_FORMAT )
     {
-        gInOutScaler = 1.0;
+      gInOutScaler = 1.0;
     }
     else if( (INPUT_FORMAT == paInt16) && (OUTPUT_FORMAT == paFloat32) )
     {
-        gInOutScaler = 1.0/32768.0;
+      gInOutScaler = 1.0/32768.0;
     }
     else if( (INPUT_FORMAT == paFloat32) && (OUTPUT_FORMAT == paInt16) )
     {
-        gInOutScaler = 32768.0;
+      gInOutScaler = 32768.0;
     }
 
     //printf("Default input device: %d, Output: %d\n",(int) Pa_GetDefaultInputDevice(), (int)Pa_GetDefaultOutputDevice());
-  
-  
-  //Set the config variable, which controls the number of channels, whether the sound is interleavened, and how many samples are gathered in one frame
-  config->isInputInterleaved = 0;
-  config->isOutputInterleaved = 0;
-  config->numInputChannels = 1;
-  config->numOutputChannels = 1;
-  config->framesPerCallback = frameSize;
-  err = TestConfiguration( config ); //The 'main' function stays here during the program's execution. err triggers when the user hits the 'enter' key
-  //Only get here after pressing 'enter.' This indicates that we're done tracking.
-  FILE *f1;
-  f1 = fopen("beats","wt");
-  for (i=0;i<1000;i++) {
-    //fprintf(f1,"Detected: %i\n",beatsDetected[i]);
-                //printf("Detected: %i\n", beatsDetected[i]);
-  }
-  fclose(f1);
-  err = paNoError;
-  
-  SoundIsDone();
-}
 
-static PaError TestConfiguration( WireConfig_t *config )
-{
+
+    //Set the config variable, which controls the number of channels, whether the sound is interleavened, and how many samples are gathered in one frame
+    config->isInputInterleaved = 0;
+    config->isOutputInterleaved = 0;
+    config->numInputChannels = 1;
+    config->numOutputChannels = 1;
+    config->framesPerCallback = frameSize;
+    err = TestConfiguration( config ); //The 'main' function stays here during the program's execution. err triggers when the user hits the 'enter' key
+    //Only get here after pressing 'enter.' This indicates that we're done tracking.
+    FILE *f1;
+    f1 = fopen("beats","wt");
+    for (i=0;i<1000;i++) {
+      //fprintf(f1,"Detected: %i\n",beatsDetected[i]);
+      //printf("Detected: %i\n", beatsDetected[i]);
+    }
+    fclose(f1);
+    err = paNoError;
+
+    SoundIsDone();
+  }
+
+  static PaError TestConfiguration( WireConfig_t *config )
+  {
     int c;
     PaError err = paNoError;
     PaStream *stream;
     PaStreamParameters inputParameters, outputParameters;
-    
- //Check for a variety of errors
-  
-  //Errors with the audio input
+
+    //Check for a variety of errors
+
+    //Errors with the audio input
     inputParameters.device = INPUT_DEVICE;              /* default input device */
     /*printf("Default Device: %d\n", Pa_GetDefaultInputDevice());
-    inputParameters.device = 2;
-    
+      inputParameters.device = 2;
+
     //int DeviceCount = Pa_GetDeviceCount();
     printf("Number of devices: %d\n",Pa_GetDeviceCount());*/
     if (inputParameters.device == paNoDevice) {
-        fprintf(stderr,"Error: No default input device.\n");
-        return err;
+      fprintf(stderr,"Error: No default input device.\n");
+      return err;
     }
     inputParameters.channelCount = config->numInputChannels;
     inputParameters.sampleFormat = INPUT_FORMAT | (config->isInputInterleaved ? 0 : paNonInterleaved);
     inputParameters.suggestedLatency = Pa_GetDeviceInfo( inputParameters.device )->defaultLowInputLatency;
     inputParameters.hostApiSpecificStreamInfo = NULL;
-  
-  //Errors with the audio output
+
+    //Errors with the audio output
     outputParameters.device = OUTPUT_DEVICE;            /* default output device */
     if (outputParameters.device == paNoDevice) {
-        fprintf(stderr,"Error: No default output device.\n");
-        return err;
+      fprintf(stderr,"Error: No default output device.\n");
+      return err;
     }
     outputParameters.channelCount = config->numOutputChannels;
     outputParameters.sampleFormat = OUTPUT_FORMAT | (config->isOutputInterleaved ? 0 : paNonInterleaved);
     outputParameters.suggestedLatency = Pa_GetDeviceInfo( outputParameters.device )->defaultLowOutputLatency;
     outputParameters.hostApiSpecificStreamInfo = NULL;
-  
-  //Errors with the stream
+
+    //Errors with the stream
     err = Pa_OpenStream(
-            &stream,
-            &inputParameters,
-            &outputParameters,
-            SAMPLE_RATE,
-            config->framesPerCallback, /* frames per buffer */
-            paClipOff, /* we won't output out of range samples so don't bother clipping them */
-            wireCallback,
-            config );
+        &stream,
+        &inputParameters,
+        &outputParameters,
+        SAMPLE_RATE,
+        config->framesPerCallback, /* frames per buffer */
+        paClipOff, /* we won't output out of range samples so don't bother clipping them */
+        wireCallback,
+        config );
     if( err != paNoError )
-    return err;
-    
-  //Can't open the stream
+      return err;
+
+    //Can't open the stream
     err = Pa_StartStream( stream );
     if( err != paNoError ) 
-    return err;
-   //Wait for a character from the command line. If it's enter, this will return. 
-   c = getchar();
-    
-  //Can't close the stream
+      return err;
+    //Wait for a character from the command line. If it's enter, this will return. 
+    c = getchar();
+
+    //Can't close the stream
     printf("Closing stream.\n");
     err = Pa_CloseStream( stream );
     if( err != paNoError ) 
-    return err;
-  
-  //If the enter key's pressed, return and stop tracking
-    if( c == 'q' ) return 1;
-  
-}
+      return err;
 
-int SoundIsDone() {
+    //If the enter key's pressed, return and stop tracking
+    if( c == 'q' ) return 1;
+
+  }
+
+  int SoundIsDone() {
     Pa_Terminate();
     printf("Done tracking.\n"); fflush(stdout);
     printf("Hit ENTER to quit.\n");  fflush(stdout);
     getchar();
     return 0;
-}
+  }
 
-int ErrorOccurred(PaError err) {
-  Pa_Terminate();
+  int ErrorOccurred(PaError err) {
+    Pa_Terminate();
     fprintf( stderr, "An error occured while using the portaudio stream\n" );
     fprintf( stderr, "Error number: %d\n", err );
     fprintf( stderr, "Error message: %s\n", Pa_GetErrorText( err ) );
     printf("Hit ENTER to quit.\n");  fflush(stdout);
     getchar();
     return -1;
-}
+  }

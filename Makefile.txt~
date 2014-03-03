@@ -1,3 +1,0 @@
-all:
-	gcc libportaudio.2.0.0.dylib BeatTracker.c BeatTrackerMath.c InitializeBeatVariables.c  main.c -o BeatTrackerApp
-
