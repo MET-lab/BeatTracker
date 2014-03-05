@@ -78,6 +78,10 @@
 #define PI (3.14159265)
 #define SAMPLE_RATE            (44100)
 
+//MARK - EXTRA INPUTS FOR MIC USE
+#define FRAMES_PER_BUFFER (512)
+
+
 //Variable indicating whether a beat is in the frame or not
 int beatHere;
 int lastBeatLocation[2];
@@ -129,13 +133,14 @@ int s, slen=sizeof(si_other);
 char buf[BUFLEN];
 char buf3[2];
 int myIndex;
-int GesBuf[700]; //changed from 300 size to 700 size
+int GesBuf[700]; //changed from 300 size to 700 sizei
 int GesBuf2[30000];
 struct timeval currentTime;
 //Set up the input and output devices
 #define CONVERT_IN_TO_OUT(in)  ((OUTPUT_SAMPLE) ((in) * gInOutScaler))
 
 #define INPUT_DEVICE           (Pa_GetDefaultInputDevice())
+//#define INPUT_DEVICE           1 //This should be the front mic channel
 #define OUTPUT_DEVICE          (Pa_GetDefaultOutputDevice())
 static PaError TestConfiguration( WireConfig_t *config );
 
@@ -465,6 +470,7 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
     }
     inputParameters.channelCount = config->numInputChannels;
     inputParameters.sampleFormat = INPUT_FORMAT | (config->isInputInterleaved ? 0 : paNonInterleaved);
+    
     inputParameters.suggestedLatency = Pa_GetDeviceInfo( inputParameters.device )->defaultLowInputLatency;
     inputParameters.hostApiSpecificStreamInfo = NULL;
 
