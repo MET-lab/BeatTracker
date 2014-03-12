@@ -138,6 +138,7 @@ int main(int argc, char** argv) {
   initBeatTracker();
 
   //I don't think we need this at all...
+  //Remove
   buf[0]=255;
   buf[1]=103;
   buf[2]=114;
@@ -217,7 +218,9 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
     }
     BeatTrackFrame(in, beatHere);
 
+    //Check if we have a beat (the set some stuff)
     if (beatPing==1){
+      //Put a click in the frame
       in[0]=1;
       lastBeatLocation[0] = lastBeatLocation[1];
       lastBeatLocation[1] = fNum;
@@ -228,15 +231,17 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
 
     }
 
+    //If we're 200 frames in (make sure we don't start too early)
     if (fNum>200)
     {
-
+      // Make sure this is a frame where we want to start the robot gesture (start halfway between beats)
       if ((fNum==lastBeatLocation[1]+beatDifferencesx[0]/2)) //&& beatDifferences>40 && beatDifferences<60 && fNum-lastBeatLocation[1]>=61)
       {
         if (beatDifferences<24)
         {
           //  beatDifferences=beatDifferences*2;
         }
+        //Get beat difference in terms of second (change 1024 to frames per buffer?)
         beatDifferencesO = round((double) (beatDifferences-4)*1024.0/44100.0*100.0);
         buf[0]=255;
         buf[1]=103;
@@ -247,13 +252,14 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
 
           buf[4] = GesBuf2[myIndex];
           myIndex=myIndex+1;
-          //Get the time
+          //Get the time (SYSTEM CALL - REMOVE) (switch frame number)
           gettimeofday(&currentTime, NULL);
           TimeVar = currentTime.tv_sec+((double)currentTime.tv_usec/100000);
           printf("UDP spot %i\n",buf[4]);
           //printf("TimeVar: %f\n",TimeVar);
           buf3[0] = 255;
           buf3[1] = 116;
+          //This may be a flag which is always on
           if (buf[4]>1)
           {
             sendto(s, buf3, 2, 0, (struct sockaddr *)&si_other, slen);
@@ -286,6 +292,7 @@ void initBeatTracker(){
   beatSend = 0;
 
   //Not sure what the hell this is.  
+  //Try removing this
   GesBuf[0]=47;
   GesBuf[1]=47;
   GesBuf[2]=47;

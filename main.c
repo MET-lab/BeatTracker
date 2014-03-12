@@ -323,7 +323,7 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
   int main(void)
   {
   
-    signal(SIGABRT, &sighandler);
+    //signal(SIGABRT, &sighandler);
     
     
     //Set up some variables for PortAudio
