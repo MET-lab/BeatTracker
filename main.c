@@ -46,9 +46,11 @@
 
 // Useful definitions
 #define PI (3.14159265)
+
+//PortAudio definitions
 #define SAMPLE_RATE (44100)
 #define FRAMES_PER_BUFFER (512)
-
+#define NUM_CHANNELS (2)
 /* #define DITHER_FLAG     (paDitherOff) */
 #define DITHER_FLAG     (0) /**/
 
@@ -164,7 +166,7 @@ int main(int argc, char** argv) {
   }
 
   //We can use this when trying to change input devices
-  printf("Default input device: %d, Output: %d\n",(int) Pa_GetDefaultInputDevice(), (int)Pa_GetDefaultOutputDevice());
+  printf("Default input device: %d, Output: %d\n",(int) INPUT_DEVICE, (int) OUTPUT_DEVICE);
 
 
 
@@ -283,7 +285,7 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
       }
     }
 
-      //Play the audio
+      //Play the audio (for now it's just a click?)
       if( config->isOutputInterleaved )
       {
         out = ((OUTPUT_SAMPLE*)outputBuffer) + outChannel;
@@ -323,7 +325,7 @@ void initBeatTracker(){
   beatSend = 0;
 
   //Not sure what the hell this is.  
-  //Try removing this
+  //Try removing this (once beatTracker is working)
   GesBuf[0]=47;
   GesBuf[1]=47;
   GesBuf[2]=47;
@@ -408,17 +410,19 @@ static PaError TestConfiguration( WireConfig_t *config )
 
   //Errors with the audio input
   inputParameters.device = INPUT_DEVICE;              /* default input device */
+  //inputParameters.device = 1;
   /*printf("Default Device: %d\n", Pa_GetDefaultInputDevice());
-    inputParameters.device = 2;
-
-  //int DeviceCount = Pa_GetDeviceCount();
-  printf("Number of devices: %d\n",Pa_GetDeviceCount());*/
+  */
+  int DeviceCount = Pa_GetDeviceCount();
+  printf("Number of devices: %d\n",Pa_GetDeviceCount());
   if (inputParameters.device == paNoDevice) {
     fprintf(stderr,"Error: No default input device.\n");
     return err;
   }
   inputParameters.channelCount = config->numInputChannels;
   inputParameters.sampleFormat = INPUT_FORMAT | (config->isInputInterleaved ? 0 : paNonInterleaved);
+  //We want to use this one (instead of the one above) but it breaks beat tracker
+  inputParameters.sampleFormat = INPUT_FORMAT;
 
   inputParameters.suggestedLatency = Pa_GetDeviceInfo( inputParameters.device )->defaultLowInputLatency;
   inputParameters.hostApiSpecificStreamInfo = NULL;
@@ -440,7 +444,8 @@ static PaError TestConfiguration( WireConfig_t *config )
       &inputParameters,
       &outputParameters,
       SAMPLE_RATE,
-      config->framesPerCallback, /* frames per buffer */
+      //config->framesPerCallback, /* frames per buffer */
+      FRAMES_PER_BUFFER, /* frames per buffer */
       paClipOff, /* we won't output out of range samples so don't bother clipping them */
       wireCallback,
       config );
