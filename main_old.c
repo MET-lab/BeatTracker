@@ -19,7 +19,6 @@
  * Copyright (c) 1999-2000 Ross Bencina and Phil Burk
  *
  */
- //MATLAB BEAT TRACKER
 
 // Standard Libraries
 #include <stdio.h>
@@ -83,13 +82,6 @@ typedef float OUTPUT_SAMPLE;
 typedef short OUTPUT_SAMPLE;
 #endif
 
-#define PA_SAMPLE_TYPE  paFloat32
-typedef float SAMPLE;
-#define SAMPLE_SILENCE  (0.0f)
-#define PRINTF_S_FORMAT "%.8f"
-#define NUM_SECONDS     (5)
-
-
 // Macro functions (used for wire callback.  Way faster than function poiters)
 #define CONVERT_IN_TO_OUT(in)  ((OUTPUT_SAMPLE) ((in) * gInOutScaler))
 
@@ -114,8 +106,19 @@ int GesBuf2[30000];
 struct timeval currentTime;
 
 
+// Set up our structs for PortAudio
+typedef struct WireConfig_s
+{
+  int isInputInterleaved;
+  int isOutputInterleaved;
+  int numInputChannels;
+  int numOutputChannels;
+  int framesPerCallback;
+} WireConfig_t;
+
+
 // Function prototypes
-static PaError TestConfiguration();
+static PaError TestConfiguration( WireConfig_t *config );
 static int wireCallback( const void *inputBuffer, 
     void *outputBuffer, 
     unsigned long framesPerBuffer, 
@@ -135,16 +138,29 @@ void printDeviceInfo(const PaDeviceInfo *device);
 // Our main function
 int main(int argc, char** argv) {
 
-  printf("Sanity check...\n");
+  // printf("Sanity check...\n");
 
 
   PaError err = paNoError;
+  WireConfig_t CONFIG;
+  WireConfig_t *config = &CONFIG;
+  //int configIndex = 0;
 
 
   //Initialize BeatTracker data
   initBeatTracker();
 
-  
+  //Check for errors
+ /* err = Pa_Initialize();
+  if( err != paNoError )
+    printf("Error occurred while initializing PortAudio.");
+    //ErrorOccurred(err);
+*/
+  //I don't think we need this at all...
+  //Remove
+  buf[0]=255;
+  buf[1]=103;
+  buf[2]=114;
 
 
   s=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -159,7 +175,17 @@ int main(int argc, char** argv) {
   //We can use this when trying to change input devices
   printf("Default input device: %d, Output: %d\n",(int) INPUT_DEVICE, (int) OUTPUT_DEVICE);
 
- err = TestConfiguration(); 
+
+
+  //Set the config variable, which controls the number of channels, whether the sound is interleavened, and how many samples are gathered in one frame
+  config->isInputInterleaved = 0;
+  config->isOutputInterleaved = 0;
+  config->numInputChannels = 1;
+  config->numOutputChannels = 1;
+  config->framesPerCallback = frameSize;
+
+  //Initialize the callback.  The program will then stay in this loop until termination is triggered.
+  err = TestConfiguration( config ); 
 
   //If we've made it here, then we're done tracking and everything is healthy
   err = paNoError;
@@ -172,41 +198,45 @@ int main(int argc, char** argv) {
 
 }
 
-/*
- * This is the big function of the program.  This function will be called
+/* This is the big function of the program.  This function will be called
  * whenever PortAudio need audio.  The BeatTracker then adds the current 
  * sample and checks if it's a beat. If it is, then a packet is sent to the
  * server.
  */
- typedef struct
-{
-    int          frameIndex;  /* Index into sample array. */
-    int          maxFrameIndex;
-    SAMPLE      *recordedSamples;
-}
-paTestData;
 static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned long framesPerBuffer, const PaStreamCallbackTimeInfo* timeInfo, PaStreamCallbackFlags statusFlags, void *userData ) {
-    paTestData *data = (paTestData*)userData;
-    INPUT_SAMPLE *in;
+  printf("In wire callback!");
+  //Define input and output variables
+  INPUT_SAMPLE *in;
+  OUTPUT_SAMPLE *out;
+  int inStride;
+  int outStride;
+  int inDone = 0;
+  int outDone = 0;
+  WireConfig_t *config = (WireConfig_t *) userData;
+  unsigned int i;
+  int inChannel, outChannel;
+  time_t tStart = clock();
 
-    //const SAMPLE *rptr = (const SAMPLE*)inputBuffer;
-    // SAMPLE *wptr = &data->recordedSamples[data->frameIndex * NUM_CHANNELS];
-    long framesToCalc;
-    long i;
-    int finished;
-    unsigned long framesLeft = data->maxFrameIndex - data->frameIndex;
-    int inStride;
-    int inChannel = 0;
-    time_t tStart = clock();
+  /* This may get called with NULL inputBuffer during initial setup. */
+  if( inputBuffer == NULL) return 0;
 
-    (void) outputBuffer; /* Prevent unused variable warnings. */
-    (void) timeInfo;
-    (void) statusFlags;
-    (void) userData;
+  printf("Derpa");
 
-    in = (INPUT_SAMPLE*)inputBuffer;
-    inStride = 1;
-
+  //Get an audio frame
+  inChannel=0;
+  outChannel=0;
+  //while( !(inDone && outDone) )
+  //{
+    if( config->isInputInterleaved )
+    {
+      in = ((INPUT_SAMPLE*)inputBuffer) + inChannel;
+      inStride = config->numInputChannels;
+    }
+    else
+    {
+      in = ((INPUT_SAMPLE**)inputBuffer)[inChannel];
+      inStride = 1;
+    }
     BeatTrackFrame(in, beatHere);
 
     //Check if we have a beat (the set some stuff)
@@ -222,7 +252,7 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
 
     }
 
-      //If we're 200 frames in (make sure we don't start too early)
+    //If we're 200 frames in (make sure we don't start too early)
     if (fNum>200)
     {
       // Make sure this is a frame where we want to start the robot gesture (start halfway between beats)
@@ -243,7 +273,11 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
 
           buf[4] = GesBuf2[myIndex];
           myIndex=myIndex+1;
-         
+          //Get the time (SYSTEM CALL - REMOVE) (switch frame number)
+          gettimeofday(&currentTime, NULL);
+          //TimeVar = currentTime.tv_sec+((double)currentTime.tv_usec/100000);
+          printf("UDP spot %i\n",buf[4]);
+          //printf("TimeVar: %f\n",TimeVar);
           buf3[0] = 255;
           buf3[1] = 116;
           //This may be a flag which is always on
@@ -259,9 +293,35 @@ static int wireCallback( const void *inputBuffer, void *outputBuffer, unsigned l
       }
     }
 
-    finished = paContinue;
-    printf("Dancing");
-    return finished;  
+      //Play the audio (for now it's just a click?)
+      if( config->isOutputInterleaved )
+      {
+        out = ((OUTPUT_SAMPLE*)outputBuffer) + outChannel;
+        outStride = config->numOutputChannels;
+      }
+      else
+      {
+        out = ((OUTPUT_SAMPLE**)outputBuffer)[outChannel];
+        outStride = 1;
+      }
+
+      for( i=0; i<framesPerBuffer; i++ )
+      {
+        *out = CONVERT_IN_TO_OUT(*in );
+        out += outStride;
+        in += inStride;
+      }
+
+
+    //Check to make sure we're not done (does this apply to input streams?)
+//    if(inChannel < (config->numInputChannels - 1)) inChannel++;
+    //else 
+//inDone = 1;
+  //  if(outChannel < (config->numOutputChannels - 1)) outChannel++;
+    //else 
+//outDone = 1;
+//    printf("inDone: %d, outDone: %d",inDone,outDone);
+ // }
 }
 
 
@@ -350,35 +410,23 @@ void initBeatTracker(){
 
 }
 
-static PaError TestConfiguration(  )
+static PaError TestConfiguration( WireConfig_t *config )
 {
   int c;
   PaError err = paNoError;
-  PaStream* stream;
+  PaStream *stream = NULL;
   PaStreamParameters inputParameters, outputParameters;
-  paTestData          data;
-  int                 i;
-  int                 totalFrames;
-  int                 numSamples;
-  int                 numBytes;
-  SAMPLE              max, val;
-  double              average;
+
+  err = Pa_Initialize();
+
   // Print info for all available devices 
-  data.maxFrameIndex = totalFrames = NUM_SECONDS * SAMPLE_RATE; /* Record for a few seconds. */
-  data.frameIndex = 0;
-  numSamples = totalFrames * NUM_CHANNELS;
-  numBytes = numSamples * sizeof(SAMPLE);
-  data.recordedSamples = (SAMPLE *) malloc( numBytes ); /* From now on, recordedSamples is initialised. */
-  if( data.recordedSamples == NULL )
-    {
-        printf("Could not allocate record array.\n");
-    }
-    for( i=0; i<numSamples; i++ ) data.recordedSamples[i] = 0;
-
-    err = Pa_Initialize();
-
   int deviceCount = Pa_GetDeviceCount();
   printf("Number of devices: %d\n", deviceCount);
+  int i;
+  for (i = 0; i < deviceCount; i++) {
+      printf("Device %d:\n", i);
+      printDeviceInfo(Pa_GetDeviceInfo(i));
+  }
 
   //Errors with the audio input
   inputParameters.device = Pa_GetDefaultInputDevice();              /* default input device */
@@ -389,26 +437,43 @@ static PaError TestConfiguration(  )
     fprintf(stderr,"Error: No default input device.\n");
     return err;
   }
-  
-  inputParameters.channelCount = 2;                    /* stereo input */
-  inputParameters.sampleFormat = PA_SAMPLE_TYPE;
+
+  inputParameters.channelCount = config->numInputChannels;
+  inputParameters.sampleFormat = INPUT_FORMAT | (config->isInputInterleaved ? 0 : paNonInterleaved);
+  //We want to use this one (instead of the one above) but it breaks beat tracker
+  inputParameters.sampleFormat = INPUT_FORMAT;
   inputParameters.suggestedLatency = Pa_GetDeviceInfo( inputParameters.device )->defaultLowInputLatency;
   inputParameters.hostApiSpecificStreamInfo = NULL;
+
+  //Errors with the audio output
+  outputParameters.device = Pa_GetDefaultOutputDevice();            /* default output device */
+  if (outputParameters.device == paNoDevice) {
+    fprintf(stderr,"Error: No default output device.\n");
+    return err;
+  }
+  outputParameters.channelCount = config->numOutputChannels;
+  outputParameters.sampleFormat = OUTPUT_FORMAT | (config->isOutputInterleaved ? 0 : paNonInterleaved);
+  //outputParameters.sampleFormat = OUTPUT_FORMAT;
+  outputParameters.suggestedLatency = Pa_GetDeviceInfo( outputParameters.device )->defaultLowOutputLatency;
+  outputParameters.hostApiSpecificStreamInfo = NULL;
   
   // Issue somewhere here too
   printStreamParameters(inputParameters);
-  //printStreamParameters(outputParameters);
+  printStreamParameters(outputParameters);
 
   //Errors with the stream
   err = Pa_OpenStream(
       &stream,
       &inputParameters,
-      NULL,
+      &outputParameters,
       SAMPLE_RATE,
+      //config->framesPerCallback, /* frames per buffer */
       FRAMES_PER_BUFFER, /* frames per buffer */
-      paClipOff,
+      paClipOff, /* we won't output out of range samples so don't bother clipping them */
+      //NULL,
       wireCallback,
-      &data );
+      config );
+      //NULL );
   if( err != paNoError ) {
     printf("Error opening stream\n");
     return err;
